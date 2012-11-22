@@ -1,0 +1,4 @@
+rootProject.name='phantombox-domain'
+
+include 'phantombox-domain-api'
+include 'phantombox-domain-impl'
