@@ -2,3 +2,4 @@ rootProject.name='phantombox-domain'
 
 include 'phantombox-domain-api'
 include 'phantombox-domain-impl'
+include 'phantombox-domain-util'

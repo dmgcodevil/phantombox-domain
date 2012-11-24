@@ -1,0 +1,5 @@
+dependencies {
+
+    compile project(':phantombox-domain-api')
+	compile project(':phantombox-domain-impl')
+}
