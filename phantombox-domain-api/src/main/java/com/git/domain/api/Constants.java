@@ -18,4 +18,9 @@ public class Constants {
      * Setup file.
      */
     public final static String FILE_NAME = "setup.xml";
+
+    /**
+     * Result.
+     */
+    public static final String RESULT = "result";
 }
