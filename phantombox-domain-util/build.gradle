@@ -1,3 +1,7 @@
+checkstyleMain {
+    exclude('**/*.java')
+}
+
 dependencies {
 
     compile project(':phantombox-domain-api')

@@ -1,6 +1,5 @@
 package com.git.domain.impl;
 
-import com.git.domain.api.CascadeSave;
 import com.git.domain.api.IConnection;
 import com.git.domain.api.IContact;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -9,7 +8,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -32,8 +30,8 @@ public class Contact extends Domain implements IContact {
 
     private String email;
 
-    @DBRef
-    @CascadeSave
+    //@DBRef
+    //@CascadeSave
     private IConnection connection;
 
     /**
