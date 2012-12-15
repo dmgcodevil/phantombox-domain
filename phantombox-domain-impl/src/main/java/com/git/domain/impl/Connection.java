@@ -1,6 +1,9 @@
 package com.git.domain.impl;
 
 import com.git.domain.api.IConnection;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.codehaus.jackson.annotate.JsonCreator;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -124,5 +127,46 @@ public class Connection extends Domain implements IConnection {
     @XmlElement
     public void setConnected(Date connected) {
         this.connected = connected;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Domain)) {
+            return false;
+        }
+
+        Connection that = (Connection) o;
+        return new EqualsBuilder()
+            .appendSuper(super.equals(o))
+            .append(ipAddress, that.ipAddress)
+            .isEquals();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+            .append(ipAddress)
+            .toHashCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+            .append("ipAddress", ipAddress)
+            .append("audioPort", audioPort)
+            .append("videoPort", videoPort)
+            .toString();
     }
 }
