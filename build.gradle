@@ -30,6 +30,20 @@ subprojects {
         }
     }
 
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
     /* ---------------- checkstyle setup ---------------- */
     checkstyle {
         configProperties.suppressionsFile = "$rootProject.projectDir/config/checkstyle/suppressions.xml"
@@ -69,7 +83,7 @@ subprojects {
 
     task quality(dependsOn: ['checkstyleMain', 'checkstyleTest'])
 
-    gradle.taskGraph.afterTask {Task task, TaskState state ->
+    gradle.taskGraph.afterTask { Task task, TaskState state ->
         if (state.failure) {
             if (task.name in ['checkstyleMain', 'checkstyleTest']) {
                 checkstyleReport {
