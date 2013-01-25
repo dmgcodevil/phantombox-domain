@@ -23,4 +23,20 @@ public class Constants {
      * Result.
      */
     public static final String RESULT = "result";
+
+    /**
+     * VFM_WDM.
+     */
+    public static final String VFM_WDM = "vfw:Microsoft WDM Image Capture (Win32):0";
+
+    /**
+     * DSC.
+     */
+    public static final String DSC = "DirectSoundCapture";
+
+    /**
+     * JSC.
+     */
+    public static final String JSC = "JavaSound audio capture";
+
 }
