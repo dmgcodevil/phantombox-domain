@@ -1,11 +1,8 @@
 package com.git.domain.impl;
 
-import com.git.domain.api.IAudioDevice;
+import com.git.domain.api.IDevice;
 import com.git.domain.api.ISetup;
-import com.git.domain.api.IVideoDevice;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -19,53 +16,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Setup implements ISetup {
 
-    private Set<String> audioDevices = new HashSet();
+    private IDevice audioDevice = new Device();
 
-    private Set<String> videoDevices = new HashSet();
+    private IDevice videoDevice = new Device();
 
-    private IAudioDevice audioDevice = new AudioDevice();
-
-    private IVideoDevice videoDevice = new VideoDevice();
 
     /**
-     * {@inheritDoc}
+     * Default constructor.
      */
-    @Override
-    public Set<String> getAudioDevices() {
-        return audioDevices;
+    public Setup() {
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @XmlElement
-    public void setAudioDevices(Set<String> audioDevices) {
-        this.audioDevices = audioDevices;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Set<String> getVideoDevices() {
-        return videoDevices;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    @XmlElement
-    public void setVideoDevices(Set<String> videoDevices) {
-        this.videoDevices = videoDevices;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public IAudioDevice getAudioDevice() {
+    public IDevice getAudioDevice() {
         return audioDevice;
     }
 
@@ -73,8 +39,8 @@ public class Setup implements ISetup {
      * {@inheritDoc}
      */
     @Override
-    @XmlElement
-    public void setAudioDevice(IAudioDevice audioDevice) {
+    @XmlElement(type = Device.class)
+    public void setAudioDevice(IDevice audioDevice) {
         this.audioDevice = audioDevice;
     }
 
@@ -82,7 +48,7 @@ public class Setup implements ISetup {
      * {@inheritDoc}
      */
     @Override
-    public IVideoDevice getVideoDevice() {
+    public IDevice getVideoDevice() {
         return videoDevice;
     }
 
@@ -90,8 +56,8 @@ public class Setup implements ISetup {
      * {@inheritDoc}
      */
     @Override
-    @XmlElement
-    public void setVideoDevice(IVideoDevice videoDevice) {
+    @XmlElement(type = Device.class)
+    public void setVideoDevice(IDevice videoDevice) {
         this.videoDevice = videoDevice;
     }
 }

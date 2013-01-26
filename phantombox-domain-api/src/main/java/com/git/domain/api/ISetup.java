@@ -1,7 +1,5 @@
 package com.git.domain.api;
 
-import java.util.Set;
-
 /**
  * Setup interface.
  * <p/>
@@ -13,58 +11,30 @@ import java.util.Set;
 public interface ISetup {
 
     /**
-     * Gets all audio devices.
-     *
-     * @return Audio devices
-     */
-    Set<String> getAudioDevices();
-
-    /**
-     * Set audio devices.
-     *
-     * @param audioDevices audio devices
-     */
-    void setAudioDevices(Set<String> audioDevices);
-
-    /**
-     * Gets all video devices.
-     *
-     * @return video devices
-     */
-    Set<String> getVideoDevices();
-
-    /**
-     * Sets video devices.
-     *
-     * @param videoDevices video devices
-     */
-    void setVideoDevices(Set<String> videoDevices);
-
-    /**
      * Gets current audio device.
      *
-     * @return {@link IAudioDevice}
+     * @return {@link IDevice}
      */
-    IAudioDevice getAudioDevice();
+    IDevice getAudioDevice();
 
     /**
      * Sets current audio device.
      *
-     * @param audioDevice {@link IAudioDevice}
+     * @param audioDevice {@link IDevice}
      */
-    void setAudioDevice(IAudioDevice audioDevice);
+    void setAudioDevice(IDevice audioDevice);
 
     /**
      * Gets video device.
      *
-     * @return {@link IVideoDevice}
+     * @return {@link IDevice}
      */
-    IVideoDevice getVideoDevice();
+    IDevice getVideoDevice();
 
     /**
      * Sets video device.
      *
-     * @param videoDevice {@link IVideoDevice}
+     * @param videoDevice {@link IDevice}
      */
-    void setVideoDevice(IVideoDevice videoDevice);
+    void setVideoDevice(IDevice videoDevice);
 }
